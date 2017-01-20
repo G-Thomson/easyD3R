@@ -5,16 +5,24 @@
 #' @import htmlwidgets
 #'
 #' @export
-easyD3 <- function(annotations, width = NULL, height = NULL, elementId = NULL) {
-  # create widget
-  htmlwidgets::createWidget(
-    name = 'easyD3',
-    annotations,
-    width = width,
-    height = height,
-    package = 'easyD3R',
-    elementId = elementId
-  )
+easyD3 <- function(annotations, width = NULL, height = NULL, elementId = NULL, widget = NULL) {
+  if (!is.null(widget)) {
+    f = "function(el, originalAnnotations, supplementaryAnnotations) {
+      console.log('appending', supplementaryAnnotations)
+      annotate('#' + el.id, supplementaryAnnotations)
+    }"
+    htmlwidgets::onRender(widget, f, annotations)
+  } else {
+    # create widget
+    htmlwidgets::createWidget(
+      name = 'easyD3',
+      annotations,
+      width = width,
+      height = height,
+      package = 'easyD3R',
+      elementId = elementId
+    )
+  }
 }
 
 #' Shiny bindings for easyD3
