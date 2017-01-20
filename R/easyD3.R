@@ -25,6 +25,18 @@ easyD3 <- function(annotations, width = NULL, height = NULL, elementId = NULL, w
   }
 }
 
+"+.easyD3" <- function(e1, e2) {
+  if (is(e1, "easyD3")) {
+    easyD3(e2, widget=e1)
+  } else {
+    easyD3(e1, widget=e2)
+  }
+}
+
+#' @rdname easyD3-add
+#' @export
+"%+%" <- `+.easyD3`
+
 #' Shiny bindings for easyD3
 #'
 #' Output and render functions for using easyD3 within Shiny

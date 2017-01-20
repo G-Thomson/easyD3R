@@ -36,7 +36,13 @@ annotations2 <- list(
   list(type = "bracket", x = 305, y = 30, width = 105, height = 30, stroke = "black")
 )
 widget <- easyD3(objects)
-widget <- easyD3(annotations1, widget = widget)
-widget <- easyD3(annotations2, widget = widget)
-print(widget)
+
+# You can pass the widget to the function
+easyD3(annotations1, widget = widget)
+
+# Or you can use the + operator
+widget + annotations1 + annotations2
+
+# Order doesn't matter
+annotations1 + widget
 ```
