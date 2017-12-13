@@ -47,11 +47,7 @@ function annotate(div, objects) {
         .attr("y", o.y)
         .attr("fill", o.fill)
         .attr("text-anchor", "middle")
-<<<<<<< HEAD
         .attr("font-size", o.font_size)
-=======
-        .attr("font-size", o.font-size)
->>>>>>> 4cd08a706f78fb6e766596b0e23b7de490c600be
         .text(o.text)
     } else if (o.type == "bracket") {
       var path = ["M", o.x, o.y + o.height, "L", o.x, o.y, "L", o.x + o.width, o.y, "L", o.x + o.width, o.y + o.height].join(" ");
