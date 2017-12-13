@@ -26,7 +26,7 @@ feat_arr <- function(coords, height = 20, width = 40, fill = "green"){
 }
 
 # Text
-feat_text <- function(coords, text = "text", vjust = 75,  font_size = 24, font_family = "Fira Sans", fill = "black"){
+feat_text <- function(coords, text = "text", vjust = 75,  font_size = 24, font_family = "Sans", fill = "black"){
   inst <- coords %>%
     transmute(type = "text",
               text = text,
