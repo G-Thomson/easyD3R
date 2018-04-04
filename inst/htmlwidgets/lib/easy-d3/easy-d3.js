@@ -56,6 +56,7 @@ function annotate(div, objects) {
       svg.append("path")
         .attr("d", path)
         .attr("stroke", o.stroke)
+        .attr("stroke-width", o.strokewidth)
         .attr("fill", "none")
     } else if (o.type == "dashed-line") {
       var path = ["M", o.x, o.y, "L", o.x, o.y + o.height].join(" ")
