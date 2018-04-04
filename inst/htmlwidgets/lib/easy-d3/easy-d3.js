@@ -79,22 +79,28 @@ function annotate(div, objects) {
         .attr("stroke", o.stroke)
         .attr("stroke-width", o.strokewidth)
     } else if (o.type == "half-arrow") {
-      var line;
-      var line2;
-      svg.append("line")
-        .attr("x1", o.x)
-        .attr("y1", o.y)
-        .attr("x2", o.x + o.width)
-        .attr("y2", o.y)
-        .attr("fill", o.fill)
-        .attr("stroke", o.stroke) 
-      svg.append("line2")
-        .attr("x1", o.x + o.width)
-        .attr("y1", o.y)
-        .attr("x2", o.x + (o.width / 2))
-        .attr("y2", o.y  + o.height)
-        .attr("style", ["stroke:", o.fill].join(""))
-        .attr("stroke", o.stroke) 
+      var newLine = document.createElementNS('http://www.w3.org/2000/svg','line');
+    newLine.setAttribute('id','line2');
+    newLine.setAttribute('x1','0');
+    newLine.setAttribute('y1','0');
+    newLine.setAttribute('x2','300');
+    newLine.setAttribute('y2','300');
+    newLine.setAttribute("stroke", "black")
+    $("svg").append(newLine);
+    //   svg.append("line")
+    //     .attr("x1", o.x)
+    //     .attr("y1", o.y)
+    //     .attr("x2", o.x + o.width)
+    //     .attr("y2", o.y)
+    //     .attr("fill", o.fill)
+    //     .attr("stroke", o.stroke) 
+    //   svg.append("line")
+    //     .attr("x1", o.x + o.width)
+    //     .attr("y1", o.y)
+    //     .attr("x2", o.x + (o.width / 2))
+    //     .attr("y2", o.y  + o.height)
+    //     .attr("style", ["stroke:", o.fill].join(""))
+    //     .attr("stroke", o.stroke) 
     }
   }
 }
