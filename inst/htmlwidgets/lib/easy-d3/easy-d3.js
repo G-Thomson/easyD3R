@@ -79,7 +79,12 @@ function annotate(div, objects) {
         .attr("stroke", o.stroke)
         .attr("stroke-width", o.strokewidth)
     } else if (o.type == "half-arrow") {
-      var path = ["M", o.x, o.y, "L", o.x + o.width, o.y, "L", o.x + o.width / 2, o.y - o.height].join(" ");
+      var path;
+      if(o.direction == "left"){
+        path = ["M", o.x + o.width / 2, o.y - o.height, "L", o.x, o.y, "L", o.x + o.width, o.y].join(" ");
+      } else if (o.direction == "right"){
+        path = ["M", o.x, o.y, "L", o.x + o.width, o.y, "L", o.x + o.width / 2, o.y - o.height].join(" ");
+      }
       svg.append("path")
         .attr("d", path)
         .attr("stroke", o.stroke)
