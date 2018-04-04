@@ -78,6 +78,12 @@ function annotate(div, objects) {
         .style("stroke-dasharray", ("3, 3"))
         .attr("stroke", o.stroke)
         .attr("stroke-width", o.strokewidth)
+    } else if (o.type == "half-arrow") {
+      var path = ["M", o.x, o.y, "L", o.x + o.width, o.y, "L", o.x / 2, o.y + o.height].join(" ")
+      svg.append("path")
+        .attr("d", path)
+        .attr("fill", o.fill)
+        .attr("stroke", o.stroke) 
     }
   }
 }
