@@ -93,7 +93,7 @@ function annotate(div, objects) {
         .attr("y1", o.y)
         .attr("x2", o.x + (o.width / 2))
         .attr("y2", o.y  + o.height)
-        .attr("fill", o.fill)
+        .attr("fill", ["stroke:", o.fill].join(""))
         .attr("stroke", o.stroke) 
     }
   }
