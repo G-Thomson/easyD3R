@@ -79,9 +79,20 @@ function annotate(div, objects) {
         .attr("stroke", o.stroke)
         .attr("stroke-width", o.strokewidth)
     } else if (o.type == "half-arrow") {
-      var path = ["M", o.x, o.y, "L", o.x + o.width, o.y, "L", o.x / 2, o.y + o.height].join(" ")
-      svg.append("path")
-        .attr("d", path)
+      var line;
+      var line2;
+      svg.append("line")
+        .attr("x1", o.x)
+        .attr("y1", o.y)
+        .attr("x2", o.x + o.width)
+        .attr("y2", o.y)
+        .attr("fill", o.fill)
+        .attr("stroke", o.stroke) 
+      svg.append("line2")
+        .attr("x1", o.x + o.width)
+        .attr("y1", o.y)
+        .attr("x2", o.x + (o.width / 2))
+        .attr("y2", o.y  + o.height)
         .attr("fill", o.fill)
         .attr("stroke", o.stroke) 
     }
