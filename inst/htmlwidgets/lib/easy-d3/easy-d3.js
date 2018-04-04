@@ -76,7 +76,7 @@ function annotate(div, objects) {
         .attr("d", path)
         .style("stroke-dasharray", ("3, 3"))
         .attr("stroke", o.stroke)
-        .attr("stroke-width", o.stroke-width)
+        .attr("stroke-width", o.strokewidth)
     }
   }
 }
